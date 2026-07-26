@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" fill="none">
+  <rect width="32" height="32" y="4" rx="8" fill="#0A0E19"/>
+  <path d="M9 11.5h9.2L23 16.3V28.5H9V11.5Z" fill="#F7F7F7"/>
+  <path d="M18.2 11.5V16.3H23" fill="#D9D9D9"/>
+  <path d="M12 20.2h8" stroke="#397554" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M12 23.2h5.5" stroke="#397554" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M16 25.6v2.2M14.6 26.8L16 28.2l1.4-1.4" stroke="#0A0E19" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="44" y="27" fill="#0A0E19" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="600" letter-spacing="-0.03em">MakeItDown</text>
+</svg>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkItDown - Convert anything to Markdown</title>
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/static/logo.svg" alt="MarkItDown" class="logo-img">
+                <span class="logo-text">MarkItDown</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">功能</a>
+                <a href="#formats">支持格式</a>
+                <a href="#api">API</a>
+            </div>
+            <a href="#convert" class="nav-cta">开始转换</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                将任何文件<br>转换为 Markdown
+            </h1>
+            <p class="hero-subtitle">
+                PDF、Word、Excel、PowerPoint、图片……<br>
+                一键转换，瞬间完成
+            </p>
+            <div class="hero-cta">
+                <a href="#convert" class="btn btn-primary">免费开始</a>
+                <a href="#api" class="btn btn-secondary">开发者 API</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="converter-preview">
+                <div class="preview-header">
+                    <span class="preview-dot red"></span>
+                    <span class="preview-dot yellow"></span>
+                    <span class="preview-dot green"></span>
+                    <span class="preview-filename">document.pdf</span>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-arrow">↓</div>
+                    <div class="preview-output">
+                        <span class="preview-hash">#</span>
+                        <span class="preview-text">文档标题</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Formats Section -->
+    <section class="formats-section" id="formats">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">支持 50+ 种格式</h2>
+                <p class="section-subtitle">智能识别文件类型，自动选择最佳转换方案</p>
+            </div>
+
+            <!-- Input Formats -->
+            <div class="formats-block">
+                <div class="formats-block-header">
+                    <span class="formats-block-icon">📥</span>
+                    <div>
+                        <h3 class="formats-block-title">可转换为 Markdown</h3>
+                        <p class="formats-block-desc">支持 Office、PDF、图片、音频等多种格式</p>
+                    </div>
+                </div>
+                
+                <div class="formats-categories">
+                    <!-- Documents -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">📄</span>
+                            <span class="format-category-name">Office 文档</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">PDF</span>
+                            <span class="format-tag">Word (.docx)</span>
+                            <span class="format-tag">Excel (.xls/.xlsx)</span>
+                            <span class="format-tag">PowerPoint (.pptx)</span>
+                        </div>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">📝</span>
+                            <span class="format-category-name">文本文件</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">TXT</span>
+                            <span class="format-tag">HTML</span>
+                            <span class="format-tag">RTF</span>
+                            <span class="format-tag">CSV</span>
+                            <span class="format-tag">Markdown</span>
+                        </div>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">🖼️</span>
+                            <span class="format-category-name">图片 (OCR)</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">PNG</span>
+                            <span class="format-tag">JPEG</span>
+                        </div>
+                    </div>
+
+                    <!-- Audio -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">🎵</span>
+                            <span class="format-category-name">音频 (转录)</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">MP3</span>
+                            <span class="format-tag">WAV</span>
+                            <span class="format-tag">M4A</span>
+                            <span class="format-tag">MP4</span>
+                        </div>
+                    </div>
+
+                    <!-- Markup -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">💻</span>
+                            <span class="format-category-name">Pandoc 标记语言</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">AsciiDoc</span>
+                            <span class="format-tag">reST</span>
+                            <span class="format-tag">LaTeX</span>
+                            <span class="format-tag">Org</span>
+                            <span class="format-tag">Textile</span>
+                            <span class="format-tag">Typst</span>
+                            <span class="format-tag">+ 更多</span>
+                        </div>
+                    </div>
+
+                    <!-- Data -->
+                    <div class="format-category">
+                        <div class="format-category-header">
+                            <span class="format-category-icon">📊</span>
+                            <span class="format-category-name">数据格式</span>
+                        </div>
+                        <div class="format-tags">
+                            <span class="format-tag">JSON</span>
+                            <span class="format-tag">RSS/Atom XML</span>
+                            <span class="format-tag">TSV</span>
+                            <span class="format-tag">BibTeX</span>
+                            <span class="format-tag">Jupyter Notebook</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Formats -->
+            <div class="formats-block export-block">
+                <div class="formats-block-header">
+                    <span class="formats-block-icon">📤</span>
+                    <div>
+                        <h3 class="formats-block-title">可导出格式</h3>
+                        <p class="formats-block-desc">将 Markdown 回转为你需要的格式</p>
+                    </div>
+                </div>
+                
+                <div class="export-grid-compact">
+                    <div class="export-item">
+                        <span class="export-item-icon">📄</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">Word</span>
+                            <span class="export-item-ext">.docx</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📑</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">PDF</span>
+                            <span class="export-item-ext">.pdf</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">🌐</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">HTML</span>
+                            <span class="export-item-ext">.html</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📚</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">EPUB</span>
+                            <span class="export-item-ext">.epub</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📄</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">LaTeX</span>
+                            <span class="export-item-ext">.tex</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📄</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">RTF</span>
+                            <span class="export-item-ext">.rtf</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📃</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">Text</span>
+                            <span class="export-item-ext">.txt</span>
+                        </div>
+                    </div>
+                    <div class="export-item">
+                        <span class="export-item-icon">📄</span>
+                        <div class="export-item-info">
+                            <span class="export-item-name">ODT</span>
+                            <span class="export-item-ext">.odt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Convert Section -->
+    <section class="convert-section" id="convert">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">上传文件</h2>
+                <p class="section-subtitle">拖拽文件或点击选择，支持批量上传</p>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-card" id="uploadArea">
+                <div class="upload-zone" id="dropZone">
+                    <div class="upload-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <p class="upload-text">拖拽文件到此处</p>
+                    <p class="upload-hint">或点击选择文件</p>
+                    <input type="file" id="fileInput" hidden multiple accept=".adoc,.asciidoc,.bib,.biblatex,.commonmark,.creole,.csljson,.csv,.dbk,.djot,.docbook,.docx,.enxml,.epub,.fb2,.gfm,.haddock,.htm,.html,.ipynb,.jats,.jira,.jpeg,.jpg,.json,.jsonl,.latex,.ltx,.m4a,.man,.markdown,.md,.mdoc,.mediawiki,.mkd,.mp3,.mp4,.msg,.muse,.native,.odt,.opml,.org,.pdf,.png,.pod,.pptx,.ris,.rst,.rtf,.t2t,.tex,.text,.textile,.tikiwiki,.tsv,.twiki,.txt,.typ,.typst,.vimwiki,.wav,.wiki,.xls,.xlsx,.xml,.zip">
+                </div>
+
+                <!-- File List -->
+                <div class="file-list" id="fileList"></div>
+
+                <!-- Progress -->
+                <div class="progress-wrapper" id="progressWrapper" hidden>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-bar" id="actionBar" hidden>
+                    <button class="btn btn-primary btn-large" id="convertBtn">
+                        <span>开始转换</span>
+                    </button>
+                    <button class="btn btn-ghost" id="clearBtn">清空</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Section -->
+    <section class="result-section" id="resultSection" hidden>
+        <div class="container">
+            <div class="result-card">
+                <div class="result-header">
+                    <h3 class="result-title">转换结果</h3>
+                    <div class="result-actions">
+                        <button class="btn btn-small btn-ghost" id="copyBtn">复制</button>
+                        <button class="btn btn-small btn-ghost" id="downloadBtn">下载</button>
+                        <button class="btn btn-small btn-primary" id="backBtn">继续转换</button>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="preview">预览</button>
+                    <button class="tab-btn" data-tab="raw">Markdown</button>
+                    <button class="tab-btn" data-tab="export">导出</button>
+                </div>
+
+                <!-- Preview -->
+                <div class="tab-content active" id="previewTab">
+                    <div class="markdown-preview" id="markdownPreview"></div>
+                </div>
+
+                <!-- Raw -->
+                <div class="tab-content" id="rawTab">
+                    <textarea class="raw-editor" id="rawEditor" readonly></textarea>
+                </div>
+
+                <!-- Export -->
+                <div class="tab-content" id="exportTab">
+                    <div class="export-grid" id="exportGrid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">强大而简单</h2>
+                <p class="section-subtitle">基于 Microsoft MarkItDown，精准识别，完美转换</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">极速转换</h3>
+                    <p class="feature-desc">本地处理，无需上传云端，秒级完成转换</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">智能识别</h3>
+                    <p class="feature-desc">自动识别文件类型，选择最佳转换方案</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">隐私安全</h3>
+                    <p class="feature-desc">文件本地处理，转换后自动删除，不留痕迹</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">↩️</div>
+                    <h3 class="feature-title">双向转换</h3>
+                    <p class="feature-desc">支持 Markdown 回转为 Word、PDF 等格式</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">批量处理</h3>
+                    <p class="feature-desc">一次上传多个文件，并行转换节省时间</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3 class="feature-title">API 支持</h3>
+                    <p class="feature-desc">提供 REST API，轻松集成到你的应用</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Section -->
+    <section class="api-section" id="api">
+        <div class="container">
+            <div class="api-content">
+                <div class="api-text">
+                    <h2 class="section-title">开发者 API</h2>
+                    <p class="section-subtitle">
+                        简单的 REST API，几行代码即可集成
+                    </p>
+                    <div class="code-block">
+                        <pre><code>curl -X POST http://localhost:8000/api/convert/to-markdown \
+  -F "file=@document.pdf"</code></pre>
+                    </div>
+                    <a href="/docs" class="btn btn-primary">查看接口文档</a>
+                </div>
+                <div class="api-visual">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-dot"></span>
+                            <span class="terminal-dot"></span>
+                            <span class="terminal-dot"></span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-cmd">markitdown convert invoice.pdf</span>
+                            </div>
+                            <div class="terminal-output">
+                                <span class="terminal-success">✓</span> Converted to invoice.md
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-cmd">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="/static/logo.svg" alt="MarkItDown" class="logo-img-small">
+                    <span class="logo-text">MarkItDown</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">关于</a>
+                    <a href="#">API</a>
+                    <a href="#">隐私</a>
+                    <a href="#">条款</a>
+                </div>
+                <p class="footer-copyright">
+                    Powered by <a href="https://github.com/microsoft/markitdown" target="_blank">Microsoft MarkItDown</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Loading -->
+    <div class="loading-overlay" id="loadingOverlay" hidden>
+        <div class="spinner"></div>
+        <p>转换中...</p>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

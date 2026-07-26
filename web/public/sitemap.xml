@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://markitdown.io/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://markitdown.io/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://markitdown.io/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/convert</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/convert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/convert"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/convert</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/convert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/convert"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/pricing</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/pricing"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/pricing</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/pricing"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/developers</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/developers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/developers"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/developers</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/developers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/developers"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/login</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/login"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/login"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/login</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/login"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/login"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/register</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/register"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/register"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/register</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/register"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/register"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/tools/pdf-to-markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/pdf-to-markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/pdf-to-markdown"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/tools/pdf-to-markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/pdf-to-markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/pdf-to-markdown"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/tools/markdown-to-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/markdown-to-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/markdown-to-pdf"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/tools/markdown-to-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/markdown-to-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/markdown-to-pdf"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/tools/docx-to-markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/docx-to-markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/docx-to-markdown"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://markitdown.io/en/tools/docx-to-markdown</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://markitdown.io/tools/docx-to-markdown"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://markitdown.io/en/tools/docx-to-markdown"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

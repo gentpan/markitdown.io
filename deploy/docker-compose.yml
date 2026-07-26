@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: makeitdown
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-makeitdown_change_me}
+      POSTGRES_DB: makeitdown
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U makeitdown -d makeitdown"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  convert:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://markitdown.io,https://www.markitdown.io,https://api.markitdown.io}
+      MAX_FILE_SIZE_MB: ${MAX_FILE_SIZE_MB:-50}
+    volumes:
+      - convert_data:/app/data
+    ports:
+      - "127.0.0.1:8010:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')",
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 8
+      start_period: 40s
+
+  web:
+    build:
+      context: ../web
+      dockerfile: Dockerfile
+      args:
+        DATABASE_URL: postgresql://makeitdown:${POSTGRES_PASSWORD:-makeitdown_change_me}@postgres:5432/makeitdown
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://makeitdown:${POSTGRES_PASSWORD:-makeitdown_change_me}@postgres:5432/makeitdown
+      NODE_ENV: production
+      PORT: "3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      convert:
+        condition: service_started
+    ports:
+      - "127.0.0.1:3010:3000"
+
+volumes:
+  pgdata:
+  convert_data:

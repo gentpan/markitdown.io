@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+venv311/
+
+# 前端
+web/node_modules/
+web/dist/
+web/.output/
+web/.vinxi/
+web/.tanstack/
+web/.env
+web/drizzle/meta/
+
+# 后端
+backend/.venv/
+backend/data/
+backend/.env
+__pycache__/
+*.pyc
+ENV/
+env/
+.venv/
+
+# 自动更新运行时状态
+updates/scheduler_config.json
+restart.sh
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 上传和输出文件
+uploads/*
+!uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+tmp-test-output/
+backups/
+
+# 部署密钥（勿提交）
+deploy/.env
+deploy/*.pem
+
+# 日志
+*.log
+
+# 测试
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
