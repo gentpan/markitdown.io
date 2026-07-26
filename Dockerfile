@@ -16,12 +16,8 @@ WORKDIR /app
 # 复制依赖文件
 COPY requirements.txt .
 
-# 安装 Python 依赖
-RUN pip install --no-cache-dir -r requirements.txt
-
-# 复制 MarkItDown 源码并安装
-COPY markitdown-0.1.5/packages/markitdown /tmp/markitdown
-RUN pip install /tmp/markitdown && rm -rf /tmp/markitdown
+# 安装 Python 依赖（含 markitdown[all]，见 requirements.txt）
+RUN pip install --no-cache-dir --pre -r requirements.txt
 
 # 复制应用代码
 COPY . .

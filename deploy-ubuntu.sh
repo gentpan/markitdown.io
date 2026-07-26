@@ -59,8 +59,7 @@ cd "$APP_DIR"
 python3.11 -m venv venv311
 source venv311/bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
-pip install ./markitdown-0.1.5/packages/markitdown
+pip install --pre -r requirements.txt
 EOF
 
 # 8. 创建 Supervisor 配置

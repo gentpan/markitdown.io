@@ -1,15 +1,14 @@
 # MarkItDown Web 部署指南
 
-## 📦 本地依赖（已包含）
+## 📦 依赖说明
 
-本项目已包含所有依赖，无需额外安装：
+MarkItDown 通过 PyPI 安装（当前锁定 `markitdown[all]==0.1.6`，见 `requirements.txt` / `backend/requirements.txt`），不再 vendor 源码目录。
 
 ```
 markitdown-web/
-├── bin/
-│   └── pandoc              # ✅ Pandoc 3.9 (本地已下载)
-├── markitdown-0.1.5/       # ✅ MarkItDown 源码 (本地已下载)
-├── venv311/                # Python 虚拟环境
+├── bin/                    # 可选：本地 Pandoc
+├── requirements.txt        # 含 markitdown[all]
+├── venv311/                # Python 虚拟环境（本地）
 └── ...
 ```
 
@@ -24,8 +23,7 @@ python3.11 --version
 # 2. 创建虚拟环境并安装依赖
 python3.11 -m venv venv311
 source venv311/bin/activate
-pip install -r requirements.txt
-pip install ./markitdown-0.1.5/packages/markitdown
+pip install --pre -r requirements.txt
 
 # 3. 启动服务
 python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
@@ -64,9 +62,8 @@ cd /opt/markitdown-web
 python3.11 -m venv venv311
 source venv311/bin/activate
 
-# 5. 安装依赖
-pip install -r requirements.txt
-pip install ./markitdown-0.1.5/packages/markitdown
+# 5. 安装依赖（含 markitdown[all]==0.1.6）
+pip install --pre -r requirements.txt
 
 # 6. 检查 Pandoc 平台版本
 # 项目已包含 bin/linux/pandoc (Linux x86_64)
@@ -164,10 +161,8 @@ markitdown-web/
 │   ├── main.py            # FastAPI 主应用
 │   ├── config.py          # 配置文件
 │   └── converter.py       # 转换核心
-├── bin/                    # 本地二进制文件
-│   └── pandoc             # Pandoc 可执行文件
-├── markitdown-0.1.5/       # MarkItDown 源码
-│   └── packages/markitdown
+├── bin/                    # 本地二进制文件（可选 Pandoc）
+│   └── pandoc
 ├── static/                 # 前端静态资源
 │   ├── css/
 │   └── js/

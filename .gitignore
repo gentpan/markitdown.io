@@ -43,6 +43,10 @@ ENV/
 env/
 .venv/
 
+# 可选本地 vendor（updater 下载的源码树，勿提交）
+/markitdown/
+/markitdown-[0-9]*/
+
 # 自动更新运行时状态
 updates/scheduler_config.json
 restart.sh

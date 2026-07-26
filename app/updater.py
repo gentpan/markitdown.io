@@ -45,12 +45,13 @@ class AutoUpdater:
         self.backup_dir.mkdir(exist_ok=True)
 
     def _resolve_markitdown_path(self) -> Path:
-        """Resolve the vendored markitdown source directory if present."""
-        preferred = BASE_DIR / "markitdown-0.1.5"
-        if preferred.exists():
-            return preferred
+        """Resolve optional local markitdown source tree (markitdown-<version>)."""
         candidates = sorted(BASE_DIR.glob("markitdown-*"), reverse=True)
-        return candidates[0] if candidates else preferred
+        # Prefer versioned trees; fall back to a plain vendor dir if present.
+        plain = BASE_DIR / "markitdown"
+        if candidates:
+            return candidates[0]
+        return plain
 
     def _get_current_version(self) -> str:
         """获取当前已安装的 markitdown 版本"""
@@ -317,16 +318,6 @@ class AutoUpdater:
         if target.exists():
             shutil.rmtree(target)
         shutil.move(str(source_dir), str(target))
-
-        # 保持旧路径兼容：若仍使用 markitdown-0.1.5，同步一份软链接/复制
-        legacy = BASE_DIR / "markitdown-0.1.5"
-        if legacy.exists() or self.markitdown_path == legacy:
-            if legacy.exists() or legacy.is_symlink():
-                if legacy.is_symlink() or legacy.is_file():
-                    legacy.unlink()
-                else:
-                    shutil.rmtree(legacy)
-            shutil.copytree(target, legacy)
 
         self.markitdown_path = target
         shutil.rmtree(extract_dir, ignore_errors=True)
