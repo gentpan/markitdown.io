@@ -107,9 +107,12 @@ SUPPORTED_TYPES: List[FileTypeInfo] = [
     FileTypeInfo(".csv", "CSV", "📊", "CSV Data", ConverterType.MARKITDOWN, "data"),
     FileTypeInfo(".ipynb", "Notebook", "📓", "Jupyter Notebook", ConverterType.MARKITDOWN, "data"),
     FileTypeInfo(".xml", "XML", "📋", "RSS/Atom XML Feed", ConverterType.MARKITDOWN, "data"),
+    FileTypeInfo(".rss", "RSS", "📰", "RSS Feed", ConverterType.MARKITDOWN, "data"),
+    FileTypeInfo(".atom", "Atom", "📰", "Atom Feed", ConverterType.MARKITDOWN, "data"),
     
-    # 压缩包
+    # 压缩包 / 电子书
     FileTypeInfo(".zip", "ZIP", "📦", "ZIP Archive", ConverterType.MARKITDOWN, "archive"),
+    FileTypeInfo(".epub", "EPUB", "📚", "EPUB eBook", ConverterType.MARKITDOWN, "ebook"),
     
     # ========== Pandoc 支持的类型 (输入) ==========
     # Markdown 本身
@@ -129,7 +132,6 @@ SUPPORTED_TYPES: List[FileTypeInfo] = [
     FileTypeInfo(".djot", "Djot", "📄", "Djot Markup", ConverterType.PANDOC, "text"),
     FileTypeInfo(".docbook", "DocBook", "📄", "DocBook XML", ConverterType.PANDOC, "document"),
     FileTypeInfo(".enxml", "EndNote XML", "📚", "EndNote XML Bibliography", ConverterType.PANDOC, "data"),
-    FileTypeInfo(".epub", "EPUB", "📚", "EPUB eBook", ConverterType.MARKITDOWN, "ebook"),
     FileTypeInfo(".fb2", "FictionBook", "📚", "FictionBook eBook", ConverterType.PANDOC, "ebook"),
     FileTypeInfo(".gfm", "GFM", "📝", "GitHub Flavored Markdown", ConverterType.PANDOC, "markdown"),
     FileTypeInfo(".haddock", "Haddock", "📄", "Haddock Markup", ConverterType.PANDOC, "text"),
@@ -162,17 +164,17 @@ SUPPORTED_TYPES: List[FileTypeInfo] = [
 ]
 
 
-# 分类信息
+# 分类信息（与 Microsoft MarkItDown README 类别对齐；空分类不返回）
+# https://github.com/microsoft/markitdown
 CATEGORIES = {
-    "document": {"name": "文档", "icon": "📄", "description": "Office 和 PDF 文档"},
-    "text": {"name": "文本", "icon": "📝", "description": "纯文本和标记语言"},
-    "image": {"name": "图片", "icon": "🖼️", "description": "支持 OCR 识别"},
-    "audio": {"name": "音频", "icon": "🎵", "description": "语音转文字"},
-    "code": {"name": "代码", "icon": "💻", "description": "源代码文件"},
-    "data": {"name": "数据", "icon": "📊", "description": "结构化数据"},
-    "archive": {"name": "压缩包", "icon": "📦", "description": "压缩文件"},
-    "markdown": {"name": "Markdown", "icon": "📑", "description": "使用 Pandoc 回转"},
-    "ebook": {"name": "电子书", "icon": "📚", "description": "EPUB 等格式"},
+    "document": {"name": "文档", "icon": "📄", "description": "PDF / Word / PPT / Excel / Outlook"},
+    "text": {"name": "文本与网页", "icon": "📝", "description": "TXT / HTML 等"},
+    "image": {"name": "图片", "icon": "🖼️", "description": "PNG / JPEG（元数据与 OCR）"},
+    "audio": {"name": "音频", "icon": "🎵", "description": "MP3 / WAV / M4A / MP4 转录"},
+    "data": {"name": "数据", "icon": "📊", "description": "CSV / JSON / XML / Notebook"},
+    "archive": {"name": "压缩包", "icon": "📦", "description": "ZIP（遍历内部文件）"},
+    "ebook": {"name": "电子书", "icon": "📚", "description": "EPUB"},
+    "markdown": {"name": "Markdown", "icon": "📑", "description": "Pandoc 输入 / 回转"},
 }
 
 
@@ -255,14 +257,18 @@ def get_supported_extensions() -> dict:
     }
 
 
-def get_types_by_category() -> dict:
-    """按分类获取文件类型"""
+def get_types_by_category(
+    converter: Optional[ConverterType] = None,
+) -> dict:
+    """按分类获取文件类型；可按转换引擎过滤（如仅 MarkItDown）。"""
     result = {}
     for category_key, category_info in CATEGORIES.items():
         types = [ft for ft in SUPPORTED_TYPES if ft.category == category_key]
+        if converter is not None:
+            types = [ft for ft in types if ft.converter == converter]
         if types:
             result[category_key] = {
                 **category_info,
-                "types": types
+                "types": types,
             }
     return result

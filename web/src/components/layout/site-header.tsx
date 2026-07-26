@@ -44,11 +44,11 @@ export function SiteHeader() {
   })
   const user = userQuery.data
 
+  // Product nav only — account lives in the avatar (signed-in) or login/register.
   const primaryNav = [
     { to: "/convert", label: t.nav.convert },
     { to: "/pricing", label: t.nav.pricing },
     { to: "/developers", label: t.nav.api },
-    { to: "/account", label: t.nav.account },
   ]
 
   const toolLinks = [
@@ -161,42 +161,54 @@ export function SiteHeader() {
           {!user ? <CreditsBadge /> : null}
 
           {user ? (
-            <>
-              <Button
-                asChild
-                variant="ghost"
-                className="h-9 gap-2 rounded-[10px] bg-[#f2f2f2] px-2.5 text-[14px] font-normal text-[#0a0e19] shadow-none hover:bg-[#e8e8e8]"
+            <DropdownMenu modal={false}>
+              <DropdownMenuTrigger
+                className={cn(
+                  "inline-flex h-9 max-w-[12rem] items-center gap-2 rounded-[10px] bg-[#f2f2f2] px-2.5 text-[14px] text-[#0a0e19] outline-none transition-colors hover:bg-[#e8e8e8]",
+                  "data-[state=open]:bg-[#e8e8e8]",
+                )}
               >
-                <LocaleLink to="/account">
-                  <img
-                    src={user.avatarUrl || defaultGravatarUrl(64)}
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="size-6 rounded-full"
-                    referrerPolicy="no-referrer"
-                  />
-                  <span className="max-w-[7rem] truncate">
-                    {user.displayName || user.email}
-                  </span>
-                </LocaleLink>
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="h-9 rounded-[10px] bg-[#f2f2f2] px-3 text-[14px] font-normal text-[#0a0e19] shadow-none hover:bg-[#e8e8e8]"
-                onClick={() => void handleLogout()}
+                <img
+                  src={user.avatarUrl || defaultGravatarUrl(64)}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="size-6 rounded-full"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="min-w-0 truncate">
+                  {user.displayName || user.email}
+                </span>
+                <ChevronDown className="size-3.5 shrink-0 opacity-50" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={8}
+                className="w-48 rounded-[12px] border border-[#e1e1e1] bg-white p-1 text-[#0a0e19] shadow-[0_8px_24px_rgba(10,14,25,0.08)] ring-0"
               >
-                <LogOut className="size-3.5" />
-                {t.nav.logout}
-              </Button>
-            </>
+                <DropdownMenuItem
+                  asChild
+                  className="cursor-pointer rounded-[8px] focus:bg-[#f2f2f2] focus:text-[#0a0e19]"
+                >
+                  <LocaleLink to="/account" className="no-underline">
+                    {t.nav.account}
+                  </LocaleLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="cursor-pointer rounded-[8px] focus:bg-[#f2f2f2] focus:text-[#0a0e19]"
+                  onSelect={() => void handleLogout()}
+                >
+                  <LogOut className="size-3.5" />
+                  {t.nav.logout}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <>
               <Button
                 asChild
                 variant="ghost"
-                className="h-9 rounded-[10px] bg-[#f2f2f2] px-3.5 text-[14px] font-normal text-[#0a0e19] shadow-none hover:bg-[#e8e8e8]"
+                className="h-9 rounded-[10px] px-3 text-[14px] font-normal text-[#636363] shadow-none hover:bg-transparent hover:text-[#0a0e19]"
               >
                 <LocaleLink to="/login">{t.nav.login}</LocaleLink>
               </Button>
@@ -256,7 +268,10 @@ export function SiteHeader() {
 
               <div className="mt-5 flex flex-col gap-6">
                 {user ? (
-                  <div className="flex items-center gap-3 px-1">
+                  <LocaleLink
+                    to="/account"
+                    className="flex items-center gap-3 rounded-[10px] px-1 py-1 no-underline hover:bg-[#f2f2f2]"
+                  >
                     <img
                       src={user.avatarUrl || defaultGravatarUrl(64)}
                       alt=""
@@ -265,13 +280,13 @@ export function SiteHeader() {
                     />
                     <div className="min-w-0">
                       <p className="truncate text-[15px] text-[#0a0e19]">
-                        {user.displayName}
+                        {user.displayName || t.nav.account}
                       </p>
                       <p className="truncate text-[12px] text-[#818181]">
                         {user.email}
                       </p>
                     </div>
-                  </div>
+                  </LocaleLink>
                 ) : null}
 
                 <div>

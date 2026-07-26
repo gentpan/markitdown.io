@@ -43,6 +43,13 @@ const ACCENT: Record<string, string> = {
   jpg: "#397554",
   jpeg: "#397554",
   image: "#397554",
+  mp3: "#7C4DFF",
+  wav: "#7C4DFF",
+  m4a: "#7C4DFF",
+  mp4: "#7C4DFF",
+  audio: "#7C4DFF",
+  zip: "#5D4037",
+  msg: "#0078D4",
 }
 
 const LABEL: Record<string, string> = {
@@ -81,6 +88,13 @@ const LABEL: Record<string, string> = {
   jpg: "IMG",
   jpeg: "IMG",
   image: "IMG",
+  mp3: "AUD",
+  wav: "AUD",
+  m4a: "AUD",
+  mp4: "AUD",
+  audio: "AUD",
+  zip: "ZIP",
+  msg: "MSG",
 }
 
 function normalize(format: string) {
@@ -182,12 +196,20 @@ export function ArrowSwapIcon({ className }: { className?: string }) {
   )
 }
 
+/**
+ * Microsoft MarkItDown public format families (README), for file → Markdown.
+ * Not a complete extension list — see /api/formats `markitdown` for all.
+ * https://github.com/microsoft/markitdown
+ */
 export const INPUT_FORMAT_CHIPS = [
   { format: "pdf", label: "PDF" },
   { format: "docx", label: "Word" },
-  { format: "xlsx", label: "Excel" },
   { format: "pptx", label: "PPT" },
+  { format: "xlsx", label: "Excel" },
   { format: "png", label: "图片" },
+  { format: "mp3", label: "音频" },
   { format: "html", label: "HTML" },
-  { format: "md", label: "MD" },
+  { format: "csv", label: "CSV/JSON" },
+  { format: "zip", label: "ZIP" },
+  { format: "epub", label: "EPUB" },
 ] as const

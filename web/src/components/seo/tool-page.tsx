@@ -17,7 +17,6 @@ export function ToolPage({
   brand,
   title,
   description,
-  acceptHint,
   related = [],
   defaultMode = "to-md",
 }: Props) {
@@ -33,10 +32,7 @@ export function ToolPage({
         </p>
       </div>
 
-      <ConverterWorkspace
-        defaultAcceptHint={acceptHint}
-        defaultMode={defaultMode}
-      />
+      <ConverterWorkspace defaultMode={defaultMode} />
 
       {related.length > 0 ? (
         <div className="mt-12 flex flex-wrap gap-2">

@@ -54,16 +54,16 @@ const zh = {
   home: {
     title: "MakeItDown — 任意文件转 Markdown",
     description:
-      "拖拽上传，瞬间把文档转成干净的 Markdown，也能回转到 PDF。",
-    h1a: "文件与 Markdown",
-    h1b: "来回转换",
-    lead: "PDF、Word、表格与幻灯片一键转 Markdown；编辑后也能导出回 PDF / DOCX。",
+      "拖拽上传，把 PDF、Office、图片、网页等转成干净 Markdown，也能导出 PDF / DOCX。",
+    h1a: "拖进来，",
+    h1b: "就是 Markdown",
+    lead: "PDF、Office、图片、音频、HTML、EPUB 等二十多种格式一键转 Markdown；改完再导出 PDF、Word 或 HTML。",
     ctaStart: "免费开始",
     ctaPricing: "查看套餐",
     f1Title: "多格式输入",
-    f1Body: "PDF、Office、图片与网页，拖进即可转成 Markdown。",
+    f1Body: "文档、表格、图片、音频与网页，拖进即可得到干净 Markdown。",
     f2Title: "双向导出",
-    f2Body: "编辑结果后，一键回到 PDF、DOCX、HTML 等格式。",
+    f2Body: "编辑结果后，一键导出 PDF、DOCX、HTML 等格式。",
     f3Title: "开发者就绪",
     f3Body: "REST API、API Key 与额度体系，方便嵌入工作流。",
   },
@@ -200,6 +200,14 @@ const zh = {
     dropActive: "松开即可上传",
     processing: "处理 {name} · {size}",
     support: "支持 {hint}",
+    uploadMd: "上传 .md 文件",
+    uploadMdHint: "拖拽或选择 .md / .markdown",
+    pasteClipboard: "粘贴剪贴板",
+    pastePlaceholder: "# 标题\n\n在这里粘贴 Markdown…",
+    orPaste: "或粘贴 Markdown 内容",
+    mdLoaded: "已载入 {name}",
+    clearMd: "清空",
+    pickExport: "选择下方格式导出",
   },
   notFound: {
     title: "页面不存在",
@@ -209,7 +217,7 @@ const zh = {
     siteName: "MakeItDown",
     defaultTitle: "MakeItDown — 任意文件转 Markdown",
     defaultDescription:
-      "把 PDF、Word、Excel、PPT、图片等一键转换为 Markdown，并支持回转到 PDF/DOCX。",
+      "拖进来就是 Markdown。PDF、Office、图片、音频、HTML、EPUB 等二十多种格式，也能导出 PDF / DOCX。",
   },
 } as const
 
@@ -252,16 +260,16 @@ const en: Messages = {
   home: {
     title: "MakeItDown — Convert any file to Markdown",
     description:
-      "Drag and drop to turn documents into clean Markdown, and export back to PDF.",
-    h1a: "Files and Markdown,",
-    h1b: "both ways",
-    lead: "Convert PDF, Word, spreadsheets, and slides to Markdown — then export back to PDF or DOCX.",
+      "Drop PDF, Office, images, web pages, and more to get clean Markdown — then export to PDF or DOCX.",
+    h1a: "Drop a file,",
+    h1b: "get Markdown",
+    lead: "Turn PDF, Office, images, audio, HTML, EPUB, and 20+ formats into Markdown — then export back to PDF, Word, or HTML.",
     ctaStart: "Start free",
     ctaPricing: "View pricing",
     f1Title: "Many formats in",
-    f1Body: "PDF, Office, images, and web pages — drop them in to get Markdown.",
+    f1Body: "Documents, sheets, images, audio, and web pages — drop them in for clean Markdown.",
     f2Title: "Export both ways",
-    f2Body: "Edit the result, then export back to PDF, DOCX, HTML, and more.",
+    f2Body: "Edit the result, then export to PDF, DOCX, HTML, and more.",
     f3Title: "Built for developers",
     f3Body: "REST API, API keys, and quotas ready for your workflows.",
   },
@@ -403,6 +411,14 @@ const en: Messages = {
     dropActive: "Release to upload",
     processing: "Processing {name} · {size}",
     support: "Supports {hint}",
+    uploadMd: "Upload .md file",
+    uploadMdHint: "Drop or choose .md / .markdown",
+    pasteClipboard: "Paste clipboard",
+    pastePlaceholder: "# Heading\n\nPaste Markdown here…",
+    orPaste: "Or paste Markdown below",
+    mdLoaded: "Loaded {name}",
+    clearMd: "Clear",
+    pickExport: "Pick a format below to export",
   },
   notFound: {
     title: "Page not found",
@@ -412,7 +428,7 @@ const en: Messages = {
     siteName: "MakeItDown",
     defaultTitle: "MakeItDown — Convert any file to Markdown",
     defaultDescription:
-      "Convert PDF, Word, Excel, PPT, and images to Markdown — and export back to PDF/DOCX.",
+      "Drop a file, get Markdown. PDF, Office, images, audio, HTML, EPUB, and 20+ formats — export back to PDF or DOCX.",
   },
 }
 

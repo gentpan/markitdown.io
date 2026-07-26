@@ -27,7 +27,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "把 PDF、Word、Excel、PPT、图片等一键转换为 Markdown，并支持回转到 PDF/DOCX。",
+          "拖进来就是 Markdown。PDF、Office、图片、音频、HTML、EPUB 等二十多种格式，也能导出 PDF / DOCX。",
       },
       { name: "theme-color", content: "#0A0E19" },
       { name: "application-name", content: "MakeItDown" },
@@ -38,7 +38,7 @@ export const Route = createRootRoute({
       {
         property: "og:description",
         content:
-          "把 PDF、Word、Excel、PPT、图片等一键转换为 Markdown，并支持回转到 PDF/DOCX。",
+          "拖进来就是 Markdown。PDF、Office、图片、音频、HTML、EPUB 等二十多种格式，也能导出 PDF / DOCX。",
       },
       { property: "og:image", content: "/android-chrome-512x512.png" },
       { name: "twitter:card", content: "summary" },

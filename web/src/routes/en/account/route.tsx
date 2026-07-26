@@ -9,7 +9,7 @@ export const Route = createFileRoute("/en/account")({
       throw redirect({
         to: "/en/login",
         search: {
-          next: `${location.pathname}${location.search}`,
+          next: `${location.pathname}${location.searchStr}`,
         },
       })
     }

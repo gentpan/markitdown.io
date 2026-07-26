@@ -11,7 +11,7 @@ export const Route = createFileRoute("/account")({
       throw redirect({
         to: localizedPath(locale, "/login"),
         search: {
-          next: `${location.pathname}${location.search}`,
+          next: `${location.pathname}${location.searchStr}`,
         },
       })
     }
