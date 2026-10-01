@@ -116,7 +116,7 @@ makeitdown.io/
 
 ## License
 
-Private repository. All rights reserved unless otherwise noted.
+All rights reserved unless otherwise noted.
 
 ## Acknowledgements
 
